@@ -1,0 +1,29 @@
+version: '3'
+
+networks:
+  private:
+    external: true
+
+services:
+  redis:
+    restart: always
+    image: redis
+    command: redis-server --requirepass vTnpi72KWLvt
+    networks:
+      - private
+    volumes:
+      - "$HOME/docker-vm/redis/data:/data"
+      - "$HOME/docker-vm/redis/config:/usr/redis_config"
+
+  neo4j:
+    image: neo4j:latest
+    restart: always
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    networks:
+      - private
+    volumes:
+      - "$HOME/docker-vm/neo4j/data:/data"
+      - "$HOME/docker-vm/neo4j/conf:/var/lib/neo4j/conf"
+      - "$HOME/docker-vm/neo4j/import:/var/lib/neo4j/import"
