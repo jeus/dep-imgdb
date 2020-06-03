@@ -35,7 +35,5 @@ cat $NEO4J_PATH/import/imdb/.tmp.title.principals.fullcrew.tsv | grep $'tconst\|
 rm -f $NEO4J_PATH/import/imdb/.tmp.title.principals.basic.tsv   $NEO4J_PATH/import/imdb/.tmp.principals.codes.tsv $NEO4J_PATH/import/imdb/.tmp.title.principals.fullcrew.tsv
 
 
-#copy neo4j config file to docker.
-cp neo4j.conf $NEO4J_PATH/conf
 
 
